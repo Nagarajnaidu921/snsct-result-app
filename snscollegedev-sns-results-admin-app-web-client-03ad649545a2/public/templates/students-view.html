@@ -1,0 +1,114 @@
+<div class="row">
+    <div class="col s12 m6 offset-m3">
+        <div class="student-view-card card grey lighten-4" ng-show="isStudentDetailsLoadded && student">
+            <div class="card-content">
+                <div class="card-title center">Student Details</div>
+                <div class="row">
+                    <div class="col s6 m4 offset-s3 offset-m4">
+                        <img src="images/admin-default.svg" alt="" class="circle responsive-img">
+                    </div>
+                </div>
+                <ul class="center student-card-view">
+                    <li>{{student.registerNumber}}</li>
+                    <li>{{student.fullName}}</li>
+                    <li>{{student.email}}</li>
+                    <li ng-if="student.gender === 'm'">Male</li>
+                    <li ng-if="student.gender === 'f'">FeMale</li>
+                    <li ng-if="student.gender === 'o'">Others</li>
+                </ul>
+                <div class="center">
+                    <button class="btn waves-effect waves-light red activator" data-target="modal-student-reset-password">Reset Password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Reset Password Modal -->
+<div id="modal-student-reset-password" class="modal">
+    <div class="modal-content">
+        <span class="waves-effect waves-light modal-close right">
+                    <i class="material-icons">close</i>
+                </span>
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="card grey lighten-4" id="reset-students-password-form">
+                    <div class="card-content">
+                        <div class="card-title center">RESET PASSWORD</div>
+                        <form name="resetPasswordForm" ng-submit="resetPassword()">
+                            <div class="input-field">
+                                <input id="student-reset-password-field-a" type="password" ng-required="true" ng-model="student.password" ng-minlength="5" class="validate">
+                                <label for="student-reset-password-field-a">Password</label>
+                            </div>
+                            <div class="input-field">
+                                <input id="student-reset-password-field-b" type="password" ng-required="true" ng-model="student.confirmPassword" ng-minlength="5" class="validate">
+                                <label for="student-reset-password-field-b">Confirm Password</label>
+                            </div>
+                            <div class="input-field">
+                                <button class="btn waves-effect waves-light" ng-disabled="resetPasswordForm.$invalid || (student.password !== student.confirmPassword)">RESET
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="modal-footer">
+        <button class="btn waves-effect waves-light modal-close orange">close</button>
+    </div> -->
+</div>
+<!-- Edit Student Modal -->
+<div id="modal-student-edit" class="modal">
+    <div class="modal-content">
+        <span class="waves-effect waves-light modal-close right">
+                    <i class="material-icons">close</i>
+                </span>
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="card grey lighten-4" id="students-edit-form">
+                    <div class="card-content">
+                        <div class="card-title center">EDIT STUDENT DETAILS</div>
+                <form name="studentEditForm" ng-submit="updateStudent()">
+                    <div class="input-field">
+                        <input id="edit-student-id" type="text" ng-required="true" ng-model="editStudent.registerNumber" ng-pattern="registerNumberPattern" class="validate">
+                        <label for="edit-student-id" class="active">Student ID</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="edit-student-fullname" type="text" ng-required="true" ng-model="editStudent.fullName" class="validate">
+                        <label for="edit-student-fullname" class="active">Full Name</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="edit-student-email" type="email" ng-required="true" ng-model="editStudent.email" class="validate">
+                        <label for="edit-student-email" class="active">Email</label>
+                    </div>
+                    <div class="input-field">
+                        <select ng-required="true" ng-selected="student.gender" ng-change="updateGenderValues()" ng-model="student.gender">
+                            <option value="" disabled>Choose Your Gender</option>
+                            <option value="m">Male</option>
+                            <option value="f">Female</option>
+                            <option value="o">Others</option>
+                        </select>
+                        <label>Gender</label>
+                    </div>
+                    <div class="input-field">
+                        <button type="submit" class="btn waves-effect waves-light" ng-disabled="studentEditForm.$invalid || studentEditForm.$pristine">Save
+                            <i class="material-icons right">save</i>
+                        </button>
+                    </div>
+                </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="modal-footer">
+        <button class="btn waves-effect waves-light modal-close orange">close</button>
+    </div> -->
+</div>
+<!-- Fixed Fab Button -->
+<div ng-show="student" class="fixed-action-btn">
+    <button data-target="modal-student-edit" class="btn-floating btn-large waves-effect waves-light red">
+        <i class="material-icons">mode_edit</i>
+    </button>
+</div>

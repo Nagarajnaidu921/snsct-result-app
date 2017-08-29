@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col s12 m6 offset-m3">
+        <div class="card grey lighten-4" id="results-upload-form">
+            <div class="card-content">
+                <div class="card-title center">Upload Results</div>
+                <form name="resultsUploadForm" ng-submit="uploadResultsFile($event)">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input name="resultsFile" class="validate" type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input name="resultsFileName" class="file-path validate" type="text" ng-model="resultsFileName" ng-required="true" placeholder="Please Selecte A File To Upload">
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <button type="submit" class="btn waves-effect waves-light" ng-disabled="resultsUploadForm.$invalid || resultsUploadForm.$pristine">Upload
+                            <i class="material-icons right">cloud_upload</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

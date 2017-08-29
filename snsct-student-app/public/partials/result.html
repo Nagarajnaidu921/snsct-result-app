@@ -1,0 +1,24 @@
+<!-- <h1 ng-controller="resultDataCtrl">results</h1> -->
+
+<div class="container" ng-controller="resultDataCtrl" >
+	<div class="row">
+		<div class="col s12 m6 offset-m3">
+			<div class="collection with-header" ng-if="isSuccess">
+				<div class="collection-header">
+					<h5>Reg No: {{id}}</h5>
+				</div>
+				<table>
+					<tr class="collection-item">
+						<td><b>Subject</b></td>
+						<td><b>Grade</b></td>
+					</tr>
+					<tr class="collection-item" ng-repeat="result in results">
+						<td>{{result.subjectCode}}</td>
+						<td>{{result.grade}}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="card red"><div class="card-title center">{{message}}</div></div>
+		</div>
+	</div>
+</div>

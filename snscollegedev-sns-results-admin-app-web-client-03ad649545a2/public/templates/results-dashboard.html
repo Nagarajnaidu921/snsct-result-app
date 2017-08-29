@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col s12 m6 offset-m3">
+        <form name="resultSearchForm" ng-submit="getResultsByRegisterNumber($event)">
+            <div class="input-field">
+                <input id="student-reg-num" type="text" ng-required="true" ng-model="student.registerNumber" class="validate">
+                <label for="student-reg-num">Student Register Number</label>
+            </div>
+            <div class="input-field">
+                <button type="submit" class="btn waves-effect waves-light" ng-disabled="resultSearchForm.$invalid">Get Results
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m6 offset-m3">
+        <ul ng-show="results.length > 0" class="collection">
+            <li data-target="modal-result-edit" ng-repeat="result in results" class="collection-item avatar admin-list waves-effect" title="Click To Edit The Result" ng-click="editResult($event, result)">
+                <i class="medium material-icons red circle">subject</i>
+                <span class="title">{{result.subjectCode}}</span>
+                <p>{{result.grade}}</p>
+                <a href="#!" class="waves-effect waves-light secondary-content" ng-click="removeResult($event, result)" title="Click To Delete">
+                    <i class="material-icons">delete</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Edit Admin Modal -->
+<div id="modal-result-edit" class="modal">
+    <div class="modal-content">
+        <span class="waves-effect waves-light modal-close right">
+                    <i class="material-icons">close</i>
+                </span>
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="card grey lighten-4" id="results-edit-form">
+                    <div class="card-content">
+                        <div class="card-title center">EDIT RESULT</div>
+                        <form name="resultEditForm" ng-submit="updateResult()">
+                            <div class="input-field">
+                                <input id="result-edit-field-subject-code" type="text" ng-required="true" ng-model="editResult.subjectCode" class="validate">
+                                <label for="result-edit-field-subject-code" class="active">Subject Code</label>
+                            </div>
+                            <div class="input-field">
+                                <input id="result-edit-field-grade" type="text" ng-required="true" ng-model="editResult.grade" class="validate">
+                                <label for="result-edit-field-grade" class="active">Grade</label>
+                            </div>
+                            <div class="input-field">
+                                <button type="submit" class="btn waves-effect waves-light" ng-disabled="resultEditForm.$invalid || resultEditForm.$pristine">Save
+                                    <i class="material-icons right">save</i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="modal-footer">
+        <button class="btn waves-effect waves-light modal-close orange">close</button>
+    </div> -->
+</div>
+
+<!-- Fixed Fab Button -->
+<div class="fixed-action-btn">
+    <a href="#!/results/upload" class="btn-floating btn-large waves-effect waves-light red">
+        <i class="material-icons">add</i>
+    </a>
+</div>

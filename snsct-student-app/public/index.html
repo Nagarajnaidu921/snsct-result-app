@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SNSCT</title>
+	<link rel="stylesheet" type="text/css" href="css/lib/icon.css">
+	<link rel="stylesheet" type="text/css" href="css/lib/materialize.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="js/lib/jquery-3.2.1.min.js"></script>
+	<script src="js/lib/materialize.min.js"></script>
+	<script src="js/lib/notify.min.js"></script>
+
+	<!-- angular -->
+	<script src="js/lib/angular.min.js"></script>
+	<script src="js/lib/angular-route.min.js"></script>
+	<!-- <script src="js/lib/ng-cordova.min.js"></script> -->
+	<script src="js/app.js"></script>
+
+
+	<!-- services -->
+	<script src="js/service/loginServ.js"></script>
+	<script src="js/service/localStorageServ.js"></script>
+	<script src="js/service/tokenServ.js"></script>
+	<script src="js/service/headerServ.js"></script>
+	<script src="js/service/resultServ.js"></script>
+
+
+
+	<!-- controllers -->
+	<script src="js/controllers/mainctrl.js"></script>
+	<script src="js/controllers/loginCtrl.js"></script>
+	<script src="js/controllers/resultCtrl.js"></script>
+	<script src="js/controllers/resultdataCtrl.js"></script>
+	
+	<!-- <script type="text/javascript" src="cordova.js"></script> -->
+	<!-- styles -->
+	<style type="text/css">
+		.input-field input[type=date]:focus + label,
+		.input-field input[type=text]:focus + label,
+		.input-field input[type=email]:focus + label,
+		.input-field input[type=password]:focus + label {
+			color: #2196F3 !important;
+		}
+
+		.input-field input[type=date]:focus,
+		.input-field input[type=text]:focus,
+		.input-field input[type=email]:focus,
+		.input-field input[type=password]:focus {
+			border-bottom: 2px solid #2196F3 !important;
+			box-shadow: none !important;
+		}
+
+		input.valid[type="text"]:not(.browser-default) {
+			border-bottom: 1px solid #2196F3 !important;
+			-webkit-box-shadow: 0 1px 0 0 #2196F3 !important;
+			box-shadow: 0 1px 0 0 #2196F3 !important;
+		}
+		.container{
+			margin-top: 30px;
+		}
+		.side-nav{
+			width: 250px;
+		}
+	</style>
+</head>
+<body ng-app="snsct" ng-controller="mainCtrl">
+<header >
+	<nav class="blue" >
+            <div class="nav-wrapper">
+                <a href="#" data-activates="mobile-side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+                <!-- <div class="brand-logo"></div>
+                <div class="brand-logo center">Flames</div> -->
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a ng-click="logout()" ng-if="isLoggedIn">logout</a></li>
+				</ul>
+                <ul class="side-nav" id="mobile-side-nav">
+                   <li><a ng-click="logout()" ng-if="isLoggedIn">logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+	<div ng-view></div>
+</body>
+</html>

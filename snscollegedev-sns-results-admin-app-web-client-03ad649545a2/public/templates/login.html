@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col s12 m6 offset-m3">
+        <div class="card grey lighten-4" id="login-form">
+            <div class="card-content">
+                <div class="card-title center">LOGIN</div>
+                <div class="login-errors" ng-if="errors.hasError">{{errors.message}}</div>
+                <form name="loginForm" ng-submit="login()">
+                    <div class="input-field">
+                        <input id="user-login-email" type="email" ng-required="true" ng-model="admin.email" class="validate">
+                        <label for="user-login-email">Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="user-login-password" type="password" ng-required="true" ng-model="admin.password" class="validate">
+                        <label for="user-login-password">Password</label>
+                    </div>
+                    <div class="input-field">
+                        <button type="submit" class="btn waves-effect waves-light" ng-disabled="loginForm.$invalid">Login
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

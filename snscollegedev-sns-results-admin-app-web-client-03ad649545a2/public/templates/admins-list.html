@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <ul ng-show="admins.length > 0" class="collection">
+            <li ng-repeat="admin in admins" ng-click="viewAdmin($event, admin)" class="collection-item avatar admin-list waves-effect">
+                <i class="medium material-icons red circle">account_circle</i>
+                <span class="title">{{admin.fullName}}</span>
+                <p>{{admin.email}}</p>
+                <a href="#!" class="waves-effect waves-light secondary-content" ng-click="removeAdmin($event, admin)">
+                    <i class="material-icons">delete</i>
+                </a>
+            </li>
+        </ul>
+        <div ng-if="isPreloader" class="preloader-wrapper active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fixed Fab Button -->
+<div class="fixed-action-btn">
+    <a href="#!/admins/new" class="btn-floating btn-large waves-effect waves-light red">
+        <i class="material-icons">add</i>
+    </a>
+</div>

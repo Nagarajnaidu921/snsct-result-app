@@ -1,0 +1,48 @@
+/* CUSTOM CSS */
+
+main.container {
+	margin-top: 20px;
+}
+
+/*Login And Registeration Form*/
+.admin-view-card .card-title,
+#registration-form .card-title,
+#login-form .card-title {
+	font-weight: bold;
+}
+
+.login-errors {
+	color: red;
+	text-align: center;
+}
+
+
+/* Admin List Styles*/
+.collection .student-list.collection-item,
+.collection .admin-list.collection-item {
+	display: block;
+}
+
+.collection .student-list.collection-item:hover:not(.active),
+.collection .admin-list.collection-item:hover:not(.active) {
+	background-color: #ddd;
+}
+.collection .collection-item.avatar .secondary-content.admin-edit {
+	right: 65px;
+}
+
+.collection .student-list.collection-item.avatar,
+.collection .admin-list.collection-item.avatar {
+	min-height: 65px;
+}
+
+/* Admin View*/
+.admin-card-view li {
+	font-weight: bold;
+	padding: 3% 2%;
+}
+
+.admin-card-view li:hover {
+	background-color: white;
+	color: green;
+}

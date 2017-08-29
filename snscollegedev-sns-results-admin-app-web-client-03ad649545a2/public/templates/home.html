@@ -1,0 +1,18 @@
+<div class="row">
+  <div ng-repeat="card in cards" class="col s12 m4">
+    <div class="card blue-grey lighten-1">
+     <div class="card-image">
+              <img ng-src="{{card.cardImagePath}}">
+              <!-- <span class="card-title red-text">Card Title</span> -->
+            </div>
+      <div class="card-content white-text">
+        <span class="card-title">{{card.title}}</span>
+        <p>{{card.text}}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>

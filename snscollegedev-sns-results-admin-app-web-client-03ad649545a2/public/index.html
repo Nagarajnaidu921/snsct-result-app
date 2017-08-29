@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SNS Results Admin App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!-- Material Icon Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS-->
+    <link rel="stylesheet" href="libs/materialize/css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/app.css">
+    <script src="libs/jquery/jquery-3.2.0.min.js"></script>
+    <script src="libs/materialize/js/materialize.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular-route.min.js"></script>
+    <!-- App Files -->
+    <script src="js/other/app.ui.materializecss.js"></script>
+    <script src="js/app.js"></script>
+    <!-- Services -->
+    <script src="js/services/local-storage.js"></script>
+    <script src="js/services/token.js"></script>
+    <script src="js/services/auth.js"></script>
+    <script src="js/services/admin.js"></script>
+    <script src="js/services/student.js"></script>
+    <script src="js/services/card.js"></script>
+    <script src="js/services/result.js"></script>
+    <!-- Directives -->
+    <script src="js/directives/nav-active.js"></script>
+    <!-- Controllers -->
+    <script src="js/controllers/main.js"></script>
+    <script src="js/controllers/nav.js"></script>
+    <script src="js/controllers/home.js"></script>
+    <script src="js/controllers/dash.js"></script>
+    <script src="js/controllers/login.js"></script>
+    <script src="js/controllers/admins-list.js"></script>
+    <script src="js/controllers/admins-create.js"></script>
+    <script src="js/controllers/admins-view.js"></script>
+    <script src="js/controllers/results-dashboard.js"></script>
+    <script src="js/controllers/results-upload.js"></script>
+
+    <script src="js/controllers/students-list.js"></script>
+    <script src="js/controllers/students-create.js"></script>
+    <script src="js/controllers/students-view.js"></script>
+
+    <script src="js/controllers/about.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="mainCtrl">
+    <header>
+        <nav class="light-blue lighten-1" ng-controller="navCtrl">
+            <div class="nav-wrapper container">
+                <a href="#" data-activates="mobile-side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="#" class="brand-logo">SNS Logo</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li ng-repeat="menuItem in navMenuItems">
+                        <a nav-active ng-href="{{menuItem.url}}">{{menuItem.text}}</a>
+                    </li>
+                    <li>
+                        <a nav-active ng-href="#!/login" ng-show="isLoggedIn" ng-click="logOut()">Logout
+                    </a>
+                    </li>
+                    <!-- <li><a nav-active ng-href="#!/home">Home</a></li>
+                    <li><a nav-active ng-href="#!/dash">Dash</a></li>
+                    <li><a nav-active ng-href="#!/login">Login</a></li>
+                    <li><a nav-active ng-href="#!/admins">Admins</a></li>
+                    <li><a nav-active ng-href="#!/about">About Us</a></li>
+                    <li><a nav-active ng-href="#!/login" ng-show="isLoggedIn" ng-click="logOut()">Logout</a></li> -->
+                </ul>
+                <ul class="side-nav green lighten-5" id="mobile-side-nav">
+                    <li ng-repeat="menuItem in navMenuItems">
+                        <a nav-active ng-href="{{menuItem.url}}">{{menuItem.text}}</a>
+                    </li>
+                    <li>
+                        <a nav-active ng-href="#!/login" ng-show="isLoggedIn" ng-click="logOut()">Logout
+                    </a>
+                    </li>
+                    <!-- <li><a nav-active ng-href="#!/home">Home</a></li>
+				<li><a nav-active ng-href="#!/dash">Dash</a></li>
+				<li><a nav-active ng-href="#!/admins">Admins</a></li>
+				<li><a nav-active ng-href="#!/login">Login</a></li>
+				<li><a nav-active ng-href="#!/about">About Us</a></li>
+				<li><a nav-active ng-href="#!/login" ng-show="isLoggedIn" ng-click="logOut()">Logout</a></li> -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container" ng-view></main>
+    <footer>
+    </footer>
+</body>
+
+</html>

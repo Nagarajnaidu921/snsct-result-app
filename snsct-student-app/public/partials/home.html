@@ -1,0 +1,12 @@
+
+<div class="container" ng-controller="resultCtrl">
+	<div class="row">
+		<div class="col s12 m6 offset-m3">
+			<div class="collection with-header">
+				<div class="collection-header"><h3>Result</h3></div>
+				<a class="collection-item" ng-href="#!/{{sutentId}}/result/sem/{{$index + 1}}"  ng-repeat="i in semesters" >{{i}}<span class="secondary-content"><i class="material-icons">send</i></span></a>
+			</div>
+		</div>
+	</div>
+	<button ng-click="logout()" class="waves-effect waves-light btn blue right">logout</button>
+</div>
