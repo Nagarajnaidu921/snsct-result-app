@@ -1,0 +1,1 @@
+# snsct-result-app
